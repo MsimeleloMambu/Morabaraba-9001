@@ -210,6 +210,8 @@ namespace Morabaraba.Test
        public void CowsCanMoveToAnyEmptySpaceIfOnlyThreeCowsofThatColourRemain()
         {
 
+
+
         }
     }
 }
