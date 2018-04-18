@@ -1,8 +1,8 @@
 language: csharp
-solution: Checkers.sln
+solution: Morabaraba.sln
 dotnet: 2.1.4
 script:
- - dotnet test Checkers.Test
+ - dotnet test Morabaraba.Test
 matrix:
   include:
     - dotnet: 2.0.0
