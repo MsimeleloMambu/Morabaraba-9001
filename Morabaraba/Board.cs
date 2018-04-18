@@ -87,17 +87,21 @@ namespace Morabaraba
         public void updateMoveBoard(string player, string Pos)
         {
             string symbol = " ";
-            if (player == "black")
-            {
-                symbol = "b";
-            }
+            if (player == "black") symbol = "b";
+
+
+
             else
-            {
+            
                 symbol = "w";
-            }
+            
             updateBoardlist(Pos, symbol);
         }
-
+        public void updateMoveOnToBoard( string Pos)
+        {
+            updateBoardlist(Pos, " ");
+        }
+            
         //get the Boardlist
         public string [] getBoardlist()
         {

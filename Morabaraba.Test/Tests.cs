@@ -37,10 +37,12 @@ namespace Morabaraba.Test
         {
             Game game = new Game();
             game.Placement("a1");
+            game.swapcurrentPlayer();
+            game.Placement("a1");
 
 
 
-            Assert.False(game.BlankSpace("a1"));
+            Assert.That(game.getComment()=="position is not valid,it is either occupied or incorrect");
 
         }
         [Test]
@@ -140,7 +142,74 @@ namespace Morabaraba.Test
             Assert.AreSame(a,null);//meaning its empty
 
         }
-       
-        
+        [Test]
+        public void CowscanMoveToConnectedSpace()
+        {
+            Game game = new Game();
+
+            game.Moving("a1", "b2");
+            game.Moving("e3", "e5");
+           
+
+            List<string> connectedtoa1 = new List<string> { "a4", "b2", "d1" };
+            List<string> connectedtoe3 = new List<string> { "d3", "e4", "f2" };
+
+            Assert.AreEqual(connectedtoa1, game.acceptable("a1"));
+            Assert.AreEqual(connectedtoe3, game.acceptable("e3"));
+           
+        }
+        [Test]
+        public void CowscanOnlyMoveToAnEmptySpace()
+        {
+            Game game = new Game();
+            game.Placement("a1");
+            game.Moving("a7", "a1");
+            Assert.That(game.getComment() == "The position to is not blank");
+
+        }
+        [Test]
+       public void MovinfdoesnoticreaseordecreasetheNUmOFCows()
+        {
+            Game game = new Game();
+            IPlayer p1 = new Player("black");
+            IPlayer p2 = new Player("white");
+            
+            game.Placement("a1");
+
+            game.Placement("a4");
+
+            game.Placement("a7");
+
+            game.Placement("b2");
+
+            game.Placement("b4");
+
+            game.Placement("b6");
+
+            game.Placement("c3");
+
+            game.Placement("c4");
+
+            game.Placement("c5");
+
+            game.Placement("d1");
+            game.Placement("d7");
+            game.Placement("d2");
+
+            
+
+            game.Moving("a1", "b2");
+            game.Moving("d3", "d2");
+           
+            
+            Assert.AreEqual(game.getCows(), 12);
+           
+
+        }
+       [Test]
+       public void CowsCanMoveToAnyEmptySpaceIfOnlyThreeCowsofThatColourRemain()
+        {
+
+        }
     }
 }

@@ -10,6 +10,7 @@ namespace Morabaraba
         //printboard
         //
         string [] getBoardlist();
+        void updateMoveOnToBoard(string Pos);
         void updateMoveBoard(string player, string Pos);
         void updateBoardlist(string pos, string character);
         void printBoard(string[] myboard);
@@ -23,6 +24,9 @@ namespace Morabaraba
         string getCurrentState();
         void AddPosition(string position);
         void updatingstate();
+        int cowsThere();
+        string WhoIsPlaying();
+        List<string> Positions();
     }
     public interface IReferee
     {
