@@ -56,7 +56,19 @@ namespace Morabaraba
                 currentstate = "flying";
             }
         }
+        public void swapcurrentPlayer()
+        {
+            switch (whoseplaying)
 
+            {
+                case "black":
+                    whoseplaying = "white";
+                    return;
+                case "white":
+                    whoseplaying = "black";
+                    return;
+            }
+        }
         public int cowsThere()
         {
             return cows;

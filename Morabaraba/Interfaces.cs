@@ -27,6 +27,7 @@ namespace Morabaraba
         int cowsThere();
         string WhoIsPlaying();
         List<string> Positions();
+        void swapcurrentPlayer();
     }
     public interface IReferee
     {

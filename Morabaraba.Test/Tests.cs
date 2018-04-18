@@ -36,8 +36,10 @@ namespace Morabaraba.Test
         public void CowsPlacedOnEmptySpaces()
         {
             Game game = new Game();
+           
+            IPlayer p1 = new Player("black");
             game.Placement("a1");
-            game.swapcurrentPlayer();
+            p1.swapcurrentPlayer();
             game.Placement("a1");
 
 
@@ -48,10 +50,10 @@ namespace Morabaraba.Test
         [Test]
         public void Amaxof12Placementsperplayerareallowed()
         {
-            //Sakhele
+
 
             Game game = new Game();
-
+            IPlayer p1 = new Player("black");
             game.Placement("d5");
 
             game.Placement("d6");
@@ -86,7 +88,7 @@ namespace Morabaraba.Test
         {
 
             Game game = new Game();
-
+            IPlayer p1 = new Player("black");
             game.Placement("d5");
 
             game.Placement("d6");
@@ -111,29 +113,29 @@ namespace Morabaraba.Test
 
 
 
-            game.swapcurrentPlayer();
+            //p1.swapcurrentPlayer();
 
-            game.Placement("a1");
+            //game.Placement("a1");
 
-            game.Placement("a4");
+            //game.Placement("a4");
 
-            game.Placement("a7");
+            //game.Placement("a7");
 
-            game.Placement("b2");
+            //game.Placement("b2");
 
-            game.Placement("b4");
+            //game.Placement("b4");
 
-            game.Placement("b6");
+            //game.Placement("b6");
 
-            game.Placement("c3");
+            //game.Placement("c3");
 
-            game.Placement("c4");
+            //game.Placement("c4");
 
-            game.Placement("c5");
+            //game.Placement("c5");
 
-            game.Placement("d1");
+            //game.Placement("d1");
 
-            game.Placement("d2");
+            //game.Placement("d2");
 
             game.Moving("a1", "g7");
             List<List<string>> a = game.player1CheckMoves();
@@ -219,7 +221,7 @@ namespace Morabaraba.Test
         {
             Game game = new Game();
             IPlayer p1 = new Player("black");
-            testingmill = new int[] { 0, 1, 2 };
+            //testingmill = new int[] { 0, 1, 2 };
             
             //Assert.AreEqual(areInMill(testingmill,p1)true);
 

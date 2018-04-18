@@ -67,19 +67,7 @@ namespace Morabaraba
         {
             return comment;
         }
-        public void swapcurrentPlayer()
-        {
-            switch (currentplayerID)
-
-            {
-                case "black":
-                    currentplayerID = "white";
-                    return;
-                case "white":
-                    currentplayerID = "black";
-                    return;
-            }
-        }
+     
         public string getCurrentPlayerID()
         {
             return currentplayerID;
