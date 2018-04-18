@@ -213,5 +213,17 @@ namespace Morabaraba.Test
 
 
         }
+
+        [Test]
+        public void MillisFormedbyThreeCowsIfOnlyTheSameColour()
+        {
+            Game game = new Game();
+            IPlayer p1 = new Player("black");
+            testingmill = new int[] { 0, 1, 2 };
+            
+            //Assert.AreEqual(areInMill(testingmill,p1)true);
+
+
+        }
     }
 }
