@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Morabaraba
 {
-    public class Player : IPlayer
+    public class Player : IPlayer, Cows
     {
         private List<string> positions;
         private List<List<string>> milllist;

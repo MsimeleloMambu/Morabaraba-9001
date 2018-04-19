@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Morabaraba
 {
-    public class Game
+    public class Game: Cows
     {
         //public string currentplayerID { get; set; }
         private string currentplayerID;
@@ -72,7 +72,7 @@ namespace Morabaraba
         {
             return currentplayerID;
         }
-        public void Placement(string Position)
+        public void AddPosition(string Position)
 
         {
             if (BlankSpace(Position) == true)
@@ -84,7 +84,7 @@ namespace Morabaraba
                     {
                         Board.updateMoveBoard(currentplayerID, Position);
                         placeNumBlack++;
-                        pBlack.AddPosition(Position);
+                        //pBlack.AddPosition(Position);
                         pBlack.updatingstate();
                         cowsthatExist++;
                     }
@@ -99,7 +99,7 @@ namespace Morabaraba
                     {
                         Board.updateMoveBoard(currentplayerID, Position);
                         placeNumWhite++;
-                        pWhite.AddPosition(Position);
+                        //pWhite.AddPosition(Position);
                         pWhite.updatingstate();
                         cowsthatExist++;
                     }
@@ -112,6 +112,19 @@ namespace Morabaraba
             }
 
         }
+
+        public void removePosition(string position)
+        {
+            if (BlankSpace(position) == false)
+            {
+                cowsthatExist--;
+            }
+            else
+            {
+                comment = "There is no cow there";
+            }
+        }
+
         public bool BlankSpace(string position)
         {
             return (getPieceAtPosition(position) == " ");
