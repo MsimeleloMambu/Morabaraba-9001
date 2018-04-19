@@ -22,12 +22,17 @@ namespace Morabaraba
         //addmills
         //
         string getCurrentState();
-        void AddPosition(string position);
         void updatingstate();
         int cowsThere();
         string WhoIsPlaying();
         List<string> Positions();
         void swapcurrentPlayer();
+    }
+
+    public interface Cows
+    {
+        void removePosition(string position);
+        void AddPosition(string position);
     }
     public interface IReferee
     {
