@@ -84,7 +84,7 @@ namespace Morabaraba
                     {
                         Board.updateMoveBoard(currentplayerID, Position);
                         placeNumBlack++;
-                        //pBlack.AddPosition(Position);
+                        pBlack.AddPosition(Position);
                         pBlack.updatingstate();
                         cowsthatExist++;
                     }
@@ -99,7 +99,7 @@ namespace Morabaraba
                     {
                         Board.updateMoveBoard(currentplayerID, Position);
                         placeNumWhite++;
-                        //pWhite.AddPosition(Position);
+                        pWhite.AddPosition(Position);
                         pWhite.updatingstate();
                         cowsthatExist++;
                     }
