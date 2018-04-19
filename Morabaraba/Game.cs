@@ -77,14 +77,13 @@ namespace Morabaraba
         {
             if (BlankSpace(Position) == true)
             {
-                if (currentplayerID == "black" && placeNumBlack < 13 )
+                if (currentplayerID == "black" && placeNumBlack < 12 )
                 {
 
                     if (pBlack.getCurrentState() == "placing")
                     {
                         Board.updateMoveBoard(currentplayerID, Position);
                         placeNumBlack++;
-                        pBlack.AddPosition(Position);
                         pBlack.updatingstate();
                         cowsthatExist++;
                     }
@@ -93,13 +92,12 @@ namespace Morabaraba
                 }
 
 
-                if (currentplayerID == "white" && placeNumBlack < 13)
+                if (currentplayerID == "white" && placeNumBlack < 12)
                 {
                     if (pWhite.getCurrentState() == "placing")
                     {
                         Board.updateMoveBoard(currentplayerID, Position);
                         placeNumWhite++;
-                        pWhite.AddPosition(Position);
                         pWhite.updatingstate();
                         cowsthatExist++;
                     }

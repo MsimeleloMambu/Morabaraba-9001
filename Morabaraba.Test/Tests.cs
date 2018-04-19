@@ -112,31 +112,6 @@ namespace Morabaraba.Test
             game.AddPosition("g4");
 
 
-
-            //p1.swapcurrentPlayer();
-
-            //game.Placement("a1");
-
-            //game.Placement("a4");
-
-            //game.Placement("a7");
-
-            //game.Placement("b2");
-
-            //game.Placement("b4");
-
-            //game.Placement("b6");
-
-            //game.Placement("c3");
-
-            //game.Placement("c4");
-
-            //game.Placement("c5");
-
-            //game.Placement("d1");
-
-            //game.Placement("d2");
-
             game.Moving("a1", "g7");
             List<List<string>> a = game.player1CheckMoves();
             
