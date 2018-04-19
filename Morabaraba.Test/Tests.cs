@@ -221,9 +221,36 @@ namespace Morabaraba.Test
         {
             Game game = new Game();
             IPlayer p1 = new Player("black");
-            //testingmill = new int[] { 0, 1, 2 };
+            int [] testingmill = new int[] { 0, 1, 2 };
             
-            //Assert.AreEqual(areInMill(testingmill,p1)true);
+            //Assert.That(areInMill(testingmill,p1)==true);
+
+
+        }
+        [Test]
+        public void MillisNotFormedWhenCowsAreDifferentColours () //bool reference mill class
+        {
+
+
+        }
+
+        [Test]
+        public void MillisNotFormedDuetoLackofFormation()  //bool reference mill class
+        {
+
+
+        }
+
+        [Test]
+        public void PossibleShootingAfterMillCompletion()   //bool reference mill class
+        {
+
+
+        }
+
+        [Test]
+        public void PlayerCannotShootTheirOwnCows()   //bool reference referee class
+        {
 
 
         }
