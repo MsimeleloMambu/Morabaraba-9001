@@ -38,9 +38,9 @@ namespace Morabaraba.Test
             Game game = new Game();
            
             IPlayer p1 = new Player("black");
-            game.Placement("a1");
+            game.AddPosition("a1");
             p1.swapcurrentPlayer();
-            game.Placement("a1");
+            game.AddPosition("a1");
 
 
 
@@ -54,31 +54,31 @@ namespace Morabaraba.Test
 
             Game game = new Game();
             IPlayer p1 = new Player("black");
-            game.Placement("d5");
+            game.AddPosition("d5");
 
-            game.Placement("d6");
+            game.AddPosition("d6");
 
-            game.Placement("d7");
+            game.AddPosition("d7");
 
-            game.Placement("e3");
+            game.AddPosition("e3");
 
-            game.Placement("e4");
+            game.AddPosition("e4");
 
-            game.Placement("e5");
+            game.AddPosition("e5");
 
-            game.Placement("f2");
+            game.AddPosition("f2");
 
-            game.Placement("f4");
+            game.AddPosition("f4");
 
-            game.Placement("f6");
+            game.AddPosition("f6");
 
-            game.Placement("g1");
+            game.AddPosition("g1");
 
-            game.Placement("g4");
-            game.Placement("g7");
+            game.AddPosition("g4");
+            game.AddPosition("g7");
 
-            game.Placement("d3");
-            game.Placement("a4"); //nomatter howmany you add  it will still be 12
+            game.AddPosition("d3");
+            game.AddPosition("a4"); //nomatter howmany you add  it will still be 12
 
             Assert.AreEqual(game.getplaceNumBlack(), 12);
 
@@ -89,27 +89,27 @@ namespace Morabaraba.Test
 
             Game game = new Game();
             IPlayer p1 = new Player("black");
-            game.Placement("d5");
+            game.AddPosition("d5");
 
-            game.Placement("d6");
+            game.AddPosition("d6");
 
-            game.Placement("d7");
+            game.AddPosition("d7");
 
-            game.Placement("e3");
+            game.AddPosition("e3");
 
-            game.Placement("e4");
+            game.AddPosition("e4");
 
-            game.Placement("e5");
+            game.AddPosition("e5");
 
-            game.Placement("f2");
+            game.AddPosition("f2");
 
-            game.Placement("f4");
+            game.AddPosition("f4");
 
-            game.Placement("f6");
+            game.AddPosition("f6");
 
-            game.Placement("g1");
+            game.AddPosition("g1");
 
-            game.Placement("g4");
+            game.AddPosition("g4");
 
 
 
@@ -164,7 +164,7 @@ namespace Morabaraba.Test
         public void CowscanOnlyMoveToAnEmptySpace()
         {
             Game game = new Game();
-            game.Placement("a1");
+            game.AddPosition("a1");
             game.Moving("a7", "a1");
             Assert.That(game.getComment() == "The position to is not blank");
 
@@ -176,27 +176,27 @@ namespace Morabaraba.Test
             IPlayer p1 = new Player("black");
             IPlayer p2 = new Player("white");
             
-            game.Placement("a1");
+            game.AddPosition("a1");
 
-            game.Placement("a4");
+            game.AddPosition("a4");
 
-            game.Placement("a7");
+            game.AddPosition("a7");
 
-            game.Placement("b2");
+            game.AddPosition("b2");
 
-            game.Placement("b4");
+            game.AddPosition("b4");
 
-            game.Placement("b6");
+            game.AddPosition("b6");
 
-            game.Placement("c3");
+            game.AddPosition("c3");
 
-            game.Placement("c4");
+            game.AddPosition("c4");
 
-            game.Placement("c5");
+            game.AddPosition("c5");
 
-            game.Placement("d1");
-            game.Placement("d7");
-            game.Placement("d2");
+            game.AddPosition("d1");
+            game.AddPosition("d7");
+            game.AddPosition("d2");
 
             
 
