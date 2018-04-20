@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Morabaraba
 {
-    public class Game
+    public class Game       //Game class is responsible for facilitating the implementation of the game.
     {
-        //public string currentplayerID { get; set; }
+        
         public string currentplayerID { get; private set; }
         private List<string> moves;
         private int placeNumBlack;
@@ -71,14 +71,16 @@ namespace Morabaraba
         {
             return currentplayerID;
         }
+
         public string changecurrentPlayerID(string player)
         {
             if(player== "black")
             {
-                return currentplayerID = "white";
+                pBlack.swapcurrentPlayer();
+                return currentplayerID = pBlack.WhoIsPlaying();
             }
-
-            return currentplayerID = "black";
+            pWhite.swapcurrentPlayer();
+            return currentplayerID = pWhite.WhoIsPlaying();
         }
         public void AddPosition(string Position)
 
