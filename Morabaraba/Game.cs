@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Morabaraba
 {
-    public class Game: Cows
+    public class Game
     {
         //public string currentplayerID { get; set; }
         public string currentplayerID { get; private set; }

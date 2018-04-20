@@ -31,11 +31,6 @@ namespace Morabaraba
 
     }
 
-    public interface Cows
-    {
-        void removePosition(string position);
-        void AddPosition(string position);
-    }
     public interface IReferee
     {
         //
