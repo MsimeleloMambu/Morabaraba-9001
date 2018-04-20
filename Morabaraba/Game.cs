@@ -135,6 +135,16 @@ namespace Morabaraba
             }
         }
 
+
+        public List<string> ReturnPlayer1positions()
+        {
+            return pBlack.Positions();
+        }
+
+        public List<string> ReturnPlayer2positions()
+        {
+            return pWhite.Positions();
+        }
         public bool BlankSpace(string position)
         {
             return (getPieceAtPosition(position) == " ");
@@ -245,6 +255,7 @@ namespace Morabaraba
             }
             return null;
         }
+
 
     }
 
