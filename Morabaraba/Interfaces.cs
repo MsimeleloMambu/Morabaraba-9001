@@ -27,7 +27,7 @@ namespace Morabaraba
         string WhoIsPlaying();
         List<string> Positions();
         void swapcurrentPlayer();
-        void AddPosition(string position);
+        void Addcow(string position);
 
     }
 

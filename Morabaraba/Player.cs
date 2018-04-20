@@ -22,7 +22,7 @@ namespace Morabaraba
 
 
         }
-        public void AddPosition(string pos)
+        public void Addcow(string pos)
         {
 
              positions.Add(pos);
