@@ -27,7 +27,8 @@ namespace Morabaraba
                     startinggame.AddPosition(position);
                     startinggame.changecurrentPlayerID(startinggame.getCurrentPlayerID());
                     cows++;
-                }           
+                }
+                List<List<string>> p1 = startinggame.player1Moves;
             }
 
             //place where restarting new game occurs

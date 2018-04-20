@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Morabaraba
 {
-    public class Mills: Cows
+    public class Mills
     {
         public List<string> MillList { get; private set; }
 
