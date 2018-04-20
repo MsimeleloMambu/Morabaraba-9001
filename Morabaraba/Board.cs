@@ -96,6 +96,8 @@ namespace Morabaraba
                 symbol = "w";
             
             updateBoardlist(Pos, symbol);
+            Console.Clear();
+            printBoard(Boardlist);
         }
         public void updateMoveOnToBoard( string Pos)
         {

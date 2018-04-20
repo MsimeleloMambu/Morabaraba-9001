@@ -14,7 +14,23 @@ namespace Morabaraba
             Board beginningboard = new Board();
             string[] coordinates = new string[] { "a1", "a4","a7","b2","b4","b6","c3","c4","c5","d1","d2","d3","d5","d6","d7","e3","e4", "e5","f2","f4","f6","g1","g4","g7" };
             beginningboard.printBoard(coordinates);
+            Console.WriteLine("Hello, ready to play Morabaraba then just press enter");
             Console.ReadLine();
+            Game startinggame = new Game();
+            int cows = 0;
+            while (cows < 13)
+            {
+                Console.WriteLine("{0}, please enter a valid cow position move",startinggame.getCurrentPlayerID());
+                string position = Console.ReadLine();
+                if (startinggame.isValidPosition(position))  //checks the read in input
+                {
+                    startinggame.AddPosition(position);
+                    startinggame.changecurrentPlayerID(startinggame.getCurrentPlayerID());
+                    cows++;
+                }           
+            }
+
+            //place where restarting new game occurs
         }
     }
 }

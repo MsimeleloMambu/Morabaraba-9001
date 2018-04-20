@@ -20,7 +20,9 @@ namespace Morabaraba
             throw new NotImplementedException();
         }
 
-       
+        //method to check valid position
+        //method whether a cow can fly 
+        //check whether a valid shooting
 
     }
 }

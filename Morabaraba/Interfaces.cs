@@ -28,6 +28,7 @@ namespace Morabaraba
         List<string> Positions();
         void swapcurrentPlayer();
         void AddPosition(string position);
+
     }
 
     public interface Cows
