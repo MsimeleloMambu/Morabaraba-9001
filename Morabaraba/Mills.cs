@@ -54,5 +54,14 @@ namespace Morabaraba
             };
         }
 
+        public void UpdateMills(int playerID)
+        {
+            foreach (Mill mill in Mills)
+            {
+                if (mill.Id == playerID
+                    && mill.isNew) { mill.isNew = false; }
+            }
+        }
+
     }
 }
