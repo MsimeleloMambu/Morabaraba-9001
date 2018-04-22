@@ -9,7 +9,7 @@ namespace Morabaraba
 {
     public class Mills
     {
-        public List<string> MillList { get; private set; }
+        public List<List<string>> MillList { get; private set; }
 
 
 
@@ -56,6 +56,7 @@ namespace Morabaraba
 
         public void UpdateMills(int playerID)
         {
+<<<<<<< HEAD
             foreach (Mill mill in Mills)
             {
                 if (mill.Id == playerID
@@ -102,5 +103,12 @@ namespace Morabaraba
                 }
             }
         }
+=======
+            this.MillList = MillList;
+        }     
+       
+        //disband mill formation
+        //check valid Mill formation
+>>>>>>> 2af213cbbbc20f124f356f4c6baf26b8481d04ea
     }
 }

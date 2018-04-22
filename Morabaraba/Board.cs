@@ -113,6 +113,18 @@ namespace Morabaraba
             return Boardlist;
         }
 
+        public bool CheckIfYouCanMove(string position)
+        {
+            foreach(string piece in Boardlist)
+            {
+                if (piece == position)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public bool isitvalid(string position)
         {
             foreach (moves1 placements in Enum.GetValues(typeof(moves1)))

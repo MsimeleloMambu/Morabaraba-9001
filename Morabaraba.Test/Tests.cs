@@ -143,16 +143,15 @@ namespace Morabaraba.Test
             Assert.AreEqual(connectedtoe3, game.acceptable("e3"));
            
         }
-        [Test]
-        public void CowscanOnlyMoveToAnEmptySpace()
+        [TestCase("a1")]
+        public void CowscanOnlyMoveToAnEmptySpace(string position)
         {
+            IBoard board = new Board();
             IPlayer p1 = new Player("black");
             IPlayer p2 = new Player("White");
-            IBoard board = new Board();
             Game game = new Game(p2, p1, board);
-            game.AddPosition("a1");
-            game.Moving("a7", "a1");
-            Assert.That(game.getComment() == "The position to is not blank");
+            game.AddPosition(position);
+            Assert.IsFalse(board.CheckIfYouCanMove(position));
 
         }
         [Test]
