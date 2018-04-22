@@ -72,7 +72,12 @@ namespace Morabaraba
             return false;
         }
 
-
+        public bool AreInMill(int[] cows, int playerID)
+        {
+            return Cows[cows[0]].Id == playerID
+                && Cows[cows[1]].Id == playerID
+                && Cows[cows[2]].Id == playerID;
+        }
 
     }
 }
