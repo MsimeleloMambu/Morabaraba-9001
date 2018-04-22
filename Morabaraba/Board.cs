@@ -6,8 +6,10 @@ namespace Morabaraba
 {
     public class Board : IBoard
 
+
     {
         private string [] Boardlist;
+        private enum moves1 { a1, a4, a7, b2, b4, b6, c3, c4, c5, d1, d2, d3, d5, d6, d7, e3, e4, e5, f2, f4, f6, g1, g4, g7 };
         public Board()
         {
             Boardlist = emptyBoard();
@@ -109,6 +111,20 @@ namespace Morabaraba
         public string [] getBoardlist()
         {
             return Boardlist;
+        }
+
+        public bool isitvalid(string position)
+        {
+            foreach (moves1 placements in Enum.GetValues(typeof(moves1)))
+            {
+                if (Enum.IsDefined(typeof(moves1), position))
+                {
+                    return true;
+                }
+
+            }
+            return false;
+
         }
     }
 }

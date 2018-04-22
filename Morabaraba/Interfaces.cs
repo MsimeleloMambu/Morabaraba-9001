@@ -14,6 +14,7 @@ namespace Morabaraba
         void updateMoveBoard(string player, string Pos);
         void updateBoardlist(string pos, string character);
         void printBoard(string[] myboard);
+        bool isitvalid(string position);
     }
   
     public interface IPlayer

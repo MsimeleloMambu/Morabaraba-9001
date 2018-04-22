@@ -25,7 +25,7 @@ namespace Morabaraba
             {
                 Console.WriteLine("{0}, please enter a valid cow position move",startinggame.getCurrentPlayerID());
                 string position = Console.ReadLine();
-                if (startinggame.isitvalid(position))  //checks the read in input
+                if (board.isitvalid(position))  //checks the read in input
                 {
                     startinggame.AddPosition(position);
                     startinggame.changecurrentPlayerID(startinggame.getCurrentPlayerID());
