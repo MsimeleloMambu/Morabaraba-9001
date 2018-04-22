@@ -16,7 +16,10 @@ namespace Morabaraba
             beginningboard.printBoard(coordinates);
             Console.WriteLine("Hello, ready to play Morabaraba then just press enter");
             Console.ReadLine();
-            Game startinggame = new Game();
+            IBoard board = new Board();
+            IPlayer pWhite = new Player("white");
+            IPlayer pBlack = new Player("black");
+            Game startinggame = new Game(pWhite, pBlack, board);
             int cows = 0;
             while (cows < 13)
             {

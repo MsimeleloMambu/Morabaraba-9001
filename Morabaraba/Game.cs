@@ -21,7 +21,7 @@ namespace Morabaraba
         private IPlayer pBlack;
         private IBoard Board;
 
-        public Game()
+        public Game(IPlayer pW, IPlayer pB, IBoard b)
         {
             currentplayerID = "black";//start with black
             placeNumBlack = 0;
@@ -29,11 +29,11 @@ namespace Morabaraba
             cowsthatExist = 0;
             this.player1Moves= player1Moves;
             this.player2Moves = player2Moves;
-            pBlack = new Player("black");
-            pWhite = new Player("white");
-            Board = new Board();
             moves = getPossibleMoves();
             comment = "";
+            Board = b;
+            pBlack = pB;
+            pWhite = pW;
         }
 
         private List<string> getPossibleMoves()
