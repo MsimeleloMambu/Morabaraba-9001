@@ -90,5 +90,17 @@ namespace Morabaraba
                 }
             }
         }
+
+        public void RemoveBrokenMills(int playerID)
+        {
+            foreach (Mill mill in Mills)
+            {
+                if (!AreInMill(mill.Positions, playerID) && mill.Id == playerID)
+                {
+                    mill.isNew = false;
+                    mill.Id = -1;
+                }
+            }
+        }
     }
 }
