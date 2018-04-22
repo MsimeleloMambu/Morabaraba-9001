@@ -8,15 +8,13 @@ namespace Morabaraba
     {
         
         public string currentplayerID { get; private set; }
-        private List<string> moves;
         private int placeNumBlack;
         private int placeNumWhite;
         private int cowsthatExist;
         public List<List<string>> player1Moves { get; private set; }
         public List<List<string>> player2Moves { get; private set; }
-       
         String comment;
-
+        private enum moves1 { a1, a4, a7, b2, b4, b6, c3, c4, c5, d1, d2, d3, d5, d6, d7, e3, e4, e5, f2, f4, f6, g1, g4, g7 };
         private IPlayer pWhite;
         private IPlayer pBlack;
         private IBoard Board;
@@ -29,23 +27,26 @@ namespace Morabaraba
             cowsthatExist = 0;
             this.player1Moves= player1Moves;
             this.player2Moves = player2Moves;
-            moves = getPossibleMoves();
             comment = "";
             Board = b;
             pBlack = pB;
             pWhite = pW;
         }
-
-        private List<string> getPossibleMoves()
+        
+        public bool isitvalid (string position)
         {
-
-
-            return new List<string> { "a1", "d1", "g1", "b2", "d2", "f2", "c3", "d3", "e3", "a4", "b4", "c4", "e4", "f4", "g4", "c5", "d5", "e5", "b6", "d6", "f6", "a7", "d7", "g7" };
+            foreach(moves1 placements in Enum.GetValues(typeof(moves1)))
+            {
+                if (Enum.IsDefined(typeof(moves1),position))
+                {
+                    return true;
+                }
+                
+            }
+            return false;
+           
         }
-        public bool isValidPosition(string position)
-        {
-            return moves.Contains(position);
-        }
+
         public int getplaceNumBlack()
         {
             return placeNumBlack;
