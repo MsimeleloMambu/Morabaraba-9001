@@ -31,8 +31,8 @@ namespace Morabaraba
                     startinggame.changecurrentPlayerID(startinggame.getCurrentPlayerID());
                     cows++;
                 }
-                List<string> p1 = startinggame.ReturnPlayer1positions();
-                List<string> p2 = startinggame.ReturnPlayer2positions();
+                List<string> playerblackmoves = startinggame.ReturnPlayer1positions();
+                List<string> playerwhitemoves = startinggame.ReturnPlayer2positions();
             }
 
             //place where restarting new game occurs
