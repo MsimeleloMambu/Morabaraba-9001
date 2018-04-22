@@ -11,21 +11,35 @@ namespace Morabaraba
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Board beginningboard = new Board();
+            string[] coordinates = new string[] { "a1", "a4","a7","b2","b4","b6","c3","c4","c5","d1","d2","d3","d5","d6","d7","e3","e4", "e5","f2","f4","f6","g1","g4","g7" };
+            beginningboard.printBoard(coordinates);
+            Console.WriteLine("Hello, ready to play Morabaraba then just press enter");
             Console.ReadLine();
+            IBoard board = new Board();
+            IPlayer pWhite = new Player("white");
+            IPlayer pBlack = new Player("black");
+            Game startinggame = new Game(pWhite, pBlack, board);
+            int cows = 0;
+            while (cows < 13)
+            {
+                Console.WriteLine("{0}, please enter a valid cow position move",startinggame.getCurrentPlayerID());
+                string position = Console.ReadLine();
+                if (board.isitvalid(position))  //checks the read in input
+                {
+                    startinggame.AddPosition(position);
+                    startinggame.changecurrentPlayerID(startinggame.getCurrentPlayerID());
+                    cows++;
+                }
+                List<string> p1 = startinggame.ReturnPlayer1positions();
+                List<string> p2 = startinggame.ReturnPlayer2positions();
+            }
+
+            //place where restarting new game occurs
         }
     }
 }
 
-//    public class BaseNotificationClass : INotifyPropertyChanged
-//    {
-//        public event PropertyChangedEventHandler PropertyChanged;
-
-//        protected virtual void OnPropertyChanged(string propertyName)
-//        {
-//            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-//        }
-//    }
 
 //    public class Board : BaseNotificationClass
 //    {
@@ -373,32 +387,6 @@ namespace Morabaraba
 
 //    }
 
-//    public class Cow
-//    {
-//        public int Position { get; set; }
-//        public char UserId { get; set; }
-//        public int CowNumber { get; set; }
-//        public int Id { get; set; }
-//        public string ImageName { get; set; }
-
-
-//        public Cow(int Position = -1, char UserId = ' ', int CowNumber = -1, int Id = -1)
-//        {
-//            this.Position = Position;
-//            this.UserId = UserId;
-//            this.CowNumber = CowNumber;
-//            this.Id = Id;
-//            getplayerImageSource();
-//        }
-
-//        private void getplayerImageSource()
-//        {
-//            if (Id == 0) ImageName = "/Gui;component/Images/redCow.png";
-//            else if (Id == 1) ImageName = "/Gui;component/Images/blueCow.png";
-//            else ImageName = "/Gui;component/Images/emptyCow.png";
-//        }
-
-//    }
 
 //    public class GameSession : BaseNotificationClass
 //    {

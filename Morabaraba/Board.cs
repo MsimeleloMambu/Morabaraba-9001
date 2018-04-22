@@ -6,8 +6,10 @@ namespace Morabaraba
 {
     public class Board : IBoard
 
+
     {
         private string [] Boardlist;
+        private enum moves1 { a1, a4, a7, b2, b4, b6, c3, c4, c5, d1, d2, d3, d5, d6, d7, e3, e4, e5, f2, f4, f6, g1, g4, g7 };
         public Board()
         {
             Boardlist = emptyBoard();
@@ -26,27 +28,28 @@ namespace Morabaraba
 
        public void printBoard (string [] myboard)//make a 2D array as cooardinate system for reference
         {
-            Console.WriteLine("||_____________ MORABARABA_______________||");
-            Console.WriteLine("||{0}---------------{1}---------------{2}||", myboard[0], myboard[1], myboard[2]);
-            Console.WriteLine("|| \\                |                // ||");
-            Console.WriteLine("||  \\               |               //  ||");
-            Console.WriteLine("||   {0}------------{1}------------{2}   ||", myboard[3], myboard[4], myboard[5]);
-            Console.WriteLine("||   |\\             |             //|   ||");
-            Console.WriteLine("||   | \\            |            // |   ||");
-            Console.WriteLine("||   |  {0}---------{1}---------{2}  |   ||", myboard[6], myboard[7], myboard[8]);
-            Console.WriteLine("||   |   |           |           |   |   ||");
-            Console.WriteLine("||   |   |           |           |   |   ||");
-            Console.WriteLine("{0}-{1}-{2}---------------------{3}-{4}-{5}", myboard[9], myboard[10], myboard[11], myboard[12], myboard[13], myboard[14]);
-            Console.WriteLine("||   |   |           |           |   |   ||");
-            Console.WriteLine("||   |   |           |           |   |   ||");
-            Console.WriteLine("||   |  {0}---------{1}---------{2}  |   ||", myboard[15], myboard[16], myboard[17]);
-            Console.WriteLine("||   |  //           |           \\  |   ||");
-            Console.WriteLine("||   | //            |            \\ |   ||");
-            Console.WriteLine("||   {0}------------{1}------------{2}   ||", myboard[18], myboard[19], myboard[20]);
-            Console.WriteLine("||   //              |              \\   ||");
-            Console.WriteLine("||  //               |               \\  ||");
-            Console.WriteLine("||{0}---------------{1}---------------{2}||", myboard[21], myboard[22], myboard[23]);
-            Console.WriteLine("||_______________________________________||");
+            Console.WriteLine("  ||_____________ MORABARABA_______________||");
+            Console.WriteLine("  ||-1--2--3-----------4----------5--6----7||");
+            Console.WriteLine("a ||{0}---------------{1}---------------{2}||", myboard[0], myboard[1], myboard[2]);
+            Console.WriteLine("  || \\                |                // ||");
+            Console.WriteLine("  ||  \\               |               //  ||");
+            Console.WriteLine("b ||   {0}------------{1}------------{2}   ||", myboard[3], myboard[4], myboard[5]);
+            Console.WriteLine("  ||   |\\             |             //|   ||");
+            Console.WriteLine("  ||   | \\            |            // |   ||");
+            Console.WriteLine("c ||   |  {0}---------{1}---------{2}  |   ||", myboard[6], myboard[7], myboard[8]);
+            Console.WriteLine("  ||   |   |           |           |   |   ||");
+            Console.WriteLine("  ||   |   |           |           |   |   ||");
+            Console.WriteLine("d {0}-{1}-{2}---------------------{3}-{4}-{5}", myboard[9], myboard[10], myboard[11], myboard[12], myboard[13], myboard[14]);
+            Console.WriteLine("  ||   |   |           |           |   |   ||");
+            Console.WriteLine("  ||   |   |           |           |   |   ||");
+            Console.WriteLine("e ||   |  {0}---------{1}---------{2}  |   ||", myboard[15], myboard[16], myboard[17]);
+            Console.WriteLine("  ||   |  //           |           \\  |   ||");
+            Console.WriteLine("  ||   | //            |            \\ |   ||");
+            Console.WriteLine("f ||   {0}------------{1}------------{2}   ||", myboard[18], myboard[19], myboard[20]);
+            Console.WriteLine("  ||   //              |              \\   ||");
+            Console.WriteLine("  ||  //               |               \\  ||");
+            Console.WriteLine("g ||{0}---------------{1}---------------{2}||", myboard[21], myboard[22], myboard[23]);
+            Console.WriteLine("  ||_______________________________________||");
             
         }
 
@@ -96,6 +99,8 @@ namespace Morabaraba
                 symbol = "w";
             
             updateBoardlist(Pos, symbol);
+            Console.Clear();
+            printBoard(Boardlist);
         }
         public void updateMoveOnToBoard( string Pos)
         {
@@ -106,6 +111,20 @@ namespace Morabaraba
         public string [] getBoardlist()
         {
             return Boardlist;
+        }
+
+        public bool isitvalid(string position)
+        {
+            foreach (moves1 placements in Enum.GetValues(typeof(moves1)))
+            {
+                if (Enum.IsDefined(typeof(moves1), position))
+                {
+                    return true;
+                }
+
+            }
+            return false;
+
         }
     }
 }

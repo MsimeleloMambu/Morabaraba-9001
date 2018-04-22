@@ -4,49 +4,35 @@ using System.Text;
 
 namespace Morabaraba
 {
-    public class Game
+    public class Game       //Game class is responsible for facilitating the implementation of the game.
     {
-        //public string currentplayerID { get; set; }
-        private string currentplayerID;
-        private List<string> moves;
+        
+        public string currentplayerID { get; private set; }
         private int placeNumBlack;
         private int placeNumWhite;
         private int cowsthatExist;
-        private List<List<string>> player1Moves;
-        private List<List<string>> player2Moves;
+        public List<List<string>> player1Moves { get; private set; }
+        public List<List<string>> player2Moves { get; private set; }
         String comment;
-        //public int totalPlaced;
-        //private bool isPlacing;
-
         private IPlayer pWhite;
         private IPlayer pBlack;
         private IBoard Board;
 
-        public Game()
+        public Game(IPlayer pW, IPlayer pB, IBoard b)
         {
             currentplayerID = "black";//start with black
             placeNumBlack = 0;
             placeNumWhite = 0;
             cowsthatExist = 0;
-            List<List<string>> player1Moves;
-            List<List<string>> player2Moves;
-            pBlack = new Player("black");
-            pWhite = new Player("white");
-            Board = new Board();
-            moves = getPossibleMoves();
-             comment = "";
+            this.player1Moves= player1Moves;
+            this.player2Moves = player2Moves;
+            comment = "";
+            Board = b;
+            pBlack = pB;
+            pWhite = pW;
         }
+        
 
-        private List<string> getPossibleMoves()
-        {
-
-
-            return new List<string> { "a1", "d1", "g1", "b2", "d2", "f2", "c3", "d3", "e3", "a4", "b4", "c4", "e4", "f4", "g4", "c5", "d5", "e5", "b6", "d6", "f6", "a7", "d7", "g7" };
-        }
-        private bool isValidPosition(string position)
-        {
-            return moves.Contains(position);
-        }
         public int getplaceNumBlack()
         {
             return placeNumBlack;
@@ -67,36 +53,35 @@ namespace Morabaraba
         {
             return comment;
         }
-        public void swapcurrentPlayer()
-        {
-            switch (currentplayerID)
-
-            {
-                case "black":
-                    currentplayerID = "white";
-                    return;
-                case "white":
-                    currentplayerID = "black";
-                    return;
-            }
-        }
+     
         public string getCurrentPlayerID()
         {
             return currentplayerID;
         }
-        public void Placement(string Position)
+
+        public string changecurrentPlayerID(string player)
+        {
+            if(player== "black")
+            {
+                pBlack.swapcurrentPlayer();
+                return currentplayerID = pBlack.WhoIsPlaying();
+            }
+            pWhite.swapcurrentPlayer();
+            return currentplayerID = pWhite.WhoIsPlaying();
+        }
+        public void AddPosition(string Position)
 
         {
             if (BlankSpace(Position) == true)
             {
-                if (currentplayerID == "black" && placeNumBlack < 13 )
+                if (currentplayerID == "black" && placeNumBlack < 12 )
                 {
 
                     if (pBlack.getCurrentState() == "placing")
                     {
                         Board.updateMoveBoard(currentplayerID, Position);
                         placeNumBlack++;
-                        pBlack.AddPosition(Position);
+                        pBlack.Addcow(Position);
                         pBlack.updatingstate();
                         cowsthatExist++;
                     }
@@ -105,13 +90,13 @@ namespace Morabaraba
                 }
 
 
-                if (currentplayerID == "white" && placeNumBlack < 13)
+                if (currentplayerID == "white" && placeNumBlack < 12)
                 {
                     if (pWhite.getCurrentState() == "placing")
                     {
                         Board.updateMoveBoard(currentplayerID, Position);
                         placeNumWhite++;
-                        pWhite.AddPosition(Position);
+                        pWhite.Addcow(Position);
                         pWhite.updatingstate();
                         cowsthatExist++;
                     }
@@ -121,8 +106,33 @@ namespace Morabaraba
             else
             {
                 comment = "position is not valid,it is either occupied or incorrect";
+                Console.WriteLine(comment);
             }
 
+        }
+
+        public void removePosition(string position)
+        {
+            if (BlankSpace(position) == false)
+            {
+                cowsthatExist--;
+            }
+            else
+            {
+                comment = "There is no cow there";
+                Console.WriteLine(comment);
+            }
+        }
+
+
+        public List<string> ReturnPlayer1positions()
+        {
+            return pBlack.Positions();
+        }
+
+        public List<string> ReturnPlayer2positions()
+        {
+            return pWhite.Positions();
         }
         public bool BlankSpace(string position)
         {
@@ -234,6 +244,8 @@ namespace Morabaraba
             }
             return null;
         }
-        }
+
+
+    }
 
 }

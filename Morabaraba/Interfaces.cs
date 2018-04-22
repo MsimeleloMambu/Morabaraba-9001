@@ -14,6 +14,7 @@ namespace Morabaraba
         void updateMoveBoard(string player, string Pos);
         void updateBoardlist(string pos, string character);
         void printBoard(string[] myboard);
+        bool isitvalid(string position);
     }
   
     public interface IPlayer
@@ -22,12 +23,15 @@ namespace Morabaraba
         //addmills
         //
         string getCurrentState();
-        void AddPosition(string position);
         void updatingstate();
         int cowsThere();
         string WhoIsPlaying();
         List<string> Positions();
+        void swapcurrentPlayer();
+        void Addcow(string position);
+
     }
+
     public interface IReferee
     {
         //

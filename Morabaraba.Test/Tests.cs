@@ -28,19 +28,23 @@ namespace Morabaraba.Test
         [Test]
         public void testBlackgetsFirstChance()
         {
-            Game game = new Game();
+            IPlayer p1 = new Player("black");
+            IPlayer p2 = new Player("White");
+            IBoard board = new Board();
+            Game game = new Game(p2, p1, board);
             string who = game.getCurrentPlayerID();
             Assert.AreSame("black", who);
         }
         [Test]
         public void CowsPlacedOnEmptySpaces()
         {
-            Game game = new Game();
-            game.Placement("a1");
-            game.swapcurrentPlayer();
-            game.Placement("a1");
-
-
+            IPlayer p1 = new Player("black");
+            IPlayer p2 = new Player("White");
+            IBoard board = new Board();
+            Game game = new Game(p2,p1,board);
+            game.AddPosition("a1");
+            p1.swapcurrentPlayer();
+            game.AddPosition("a1");
 
             Assert.That(game.getComment()=="position is not valid,it is either occupied or incorrect");
 
@@ -48,35 +52,36 @@ namespace Morabaraba.Test
         [Test]
         public void Amaxof12Placementsperplayerareallowed()
         {
-            //Sakhele
 
-            Game game = new Game();
+            IPlayer p1 = new Player("black");
+            IPlayer p2 = new Player("White");
+            IBoard board = new Board();
+            Game game = new Game(p2, p1, board);
+            game.AddPosition("d5");
 
-            game.Placement("d5");
+            game.AddPosition("d6");
 
-            game.Placement("d6");
+            game.AddPosition("d7");
 
-            game.Placement("d7");
+            game.AddPosition("e3");
 
-            game.Placement("e3");
+            game.AddPosition("e4");
 
-            game.Placement("e4");
+            game.AddPosition("e5");
 
-            game.Placement("e5");
+            game.AddPosition("f2");
 
-            game.Placement("f2");
+            game.AddPosition("f4");
 
-            game.Placement("f4");
+            game.AddPosition("f6");
 
-            game.Placement("f6");
+            game.AddPosition("g1");
 
-            game.Placement("g1");
+            game.AddPosition("g4");
+            game.AddPosition("g7");
 
-            game.Placement("g4");
-            game.Placement("g7");
-
-            game.Placement("d3");
-            game.Placement("a4"); //nomatter howmany you add  it will still be 12
+            game.AddPosition("d3");
+            game.AddPosition("a4"); //nomatter howmany you add  it will still be 12
 
             Assert.AreEqual(game.getplaceNumBlack(), 12);
 
@@ -85,55 +90,32 @@ namespace Morabaraba.Test
         public void NomovementduringPlacement()
         {
 
-            Game game = new Game();
+            IPlayer p1 = new Player("black");
+            IPlayer p2 = new Player("White");
+            IBoard board = new Board();
+            Game game = new Game(p2, p1, board);
+            game.AddPosition("d5");
 
-            game.Placement("d5");
+            game.AddPosition("d6");
 
-            game.Placement("d6");
+            game.AddPosition("d7");
 
-            game.Placement("d7");
+            game.AddPosition("e3");
 
-            game.Placement("e3");
+            game.AddPosition("e4");
 
-            game.Placement("e4");
+            game.AddPosition("e5");
 
-            game.Placement("e5");
+            game.AddPosition("f2");
 
-            game.Placement("f2");
+            game.AddPosition("f4");
 
-            game.Placement("f4");
+            game.AddPosition("f6");
 
-            game.Placement("f6");
+            game.AddPosition("g1");
 
-            game.Placement("g1");
+            game.AddPosition("g4");
 
-            game.Placement("g4");
-
-
-
-            game.swapcurrentPlayer();
-
-            game.Placement("a1");
-
-            game.Placement("a4");
-
-            game.Placement("a7");
-
-            game.Placement("b2");
-
-            game.Placement("b4");
-
-            game.Placement("b6");
-
-            game.Placement("c3");
-
-            game.Placement("c4");
-
-            game.Placement("c5");
-
-            game.Placement("d1");
-
-            game.Placement("d2");
 
             game.Moving("a1", "g7");
             List<List<string>> a = game.player1CheckMoves();
@@ -145,7 +127,10 @@ namespace Morabaraba.Test
         [Test]
         public void CowscanMoveToConnectedSpace()
         {
-            Game game = new Game();
+            IPlayer p1 = new Player("black");
+            IPlayer p2 = new Player("White");
+            IBoard board = new Board();
+            Game game = new Game(p2, p1, board);
 
             game.Moving("a1", "b2");
             game.Moving("e3", "e5");
@@ -161,8 +146,11 @@ namespace Morabaraba.Test
         [Test]
         public void CowscanOnlyMoveToAnEmptySpace()
         {
-            Game game = new Game();
-            game.Placement("a1");
+            IPlayer p1 = new Player("black");
+            IPlayer p2 = new Player("White");
+            IBoard board = new Board();
+            Game game = new Game(p2, p1, board);
+            game.AddPosition("a1");
             game.Moving("a7", "a1");
             Assert.That(game.getComment() == "The position to is not blank");
 
@@ -170,31 +158,32 @@ namespace Morabaraba.Test
         [Test]
        public void MovinfdoesnoticreaseordecreasetheNUmOFCows()
         {
-            Game game = new Game();
             IPlayer p1 = new Player("black");
-            IPlayer p2 = new Player("white");
-            
-            game.Placement("a1");
+            IPlayer p2 = new Player("White");
+            IBoard board = new Board();
+            Game game = new Game(p2, p1, board);
 
-            game.Placement("a4");
+            game.AddPosition("a1");
 
-            game.Placement("a7");
+            game.AddPosition("a4");
 
-            game.Placement("b2");
+            game.AddPosition("a7");
 
-            game.Placement("b4");
+            game.AddPosition("b2");
 
-            game.Placement("b6");
+            game.AddPosition("b4");
 
-            game.Placement("c3");
+            game.AddPosition("b6");
 
-            game.Placement("c4");
+            game.AddPosition("c3");
 
-            game.Placement("c5");
+            game.AddPosition("c4");
 
-            game.Placement("d1");
-            game.Placement("d7");
-            game.Placement("d2");
+            game.AddPosition("c5");
+
+            game.AddPosition("d1");
+            game.AddPosition("d7");
+            game.AddPosition("d2");
 
             
 
@@ -210,6 +199,47 @@ namespace Morabaraba.Test
        public void CowsCanMoveToAnyEmptySpaceIfOnlyThreeCowsofThatColourRemain()
         {
 
+
+
+        }
+
+        [Test]
+        public void MillisFormedbyThreeCowsIfOnlyTheSameColour()
+        {
+            IPlayer p1 = new Player("black");
+            IPlayer p2 = new Player("White");
+            IBoard board = new Board();
+            Game game = new Game(p2, p1, board);
+            int [] testingmill = new int[] { 0, 1, 2 };
+            
+            //Assert.That(areInMill(testingmill,p1)==true);
+
+
+        }
+        [Test]
+        public void MillisNotFormedWhenCowsAreDifferentColours () //bool reference mill class
+        {
+
+
+        }
+
+        [Test]
+        public void MillisNotFormedDuetoLackofFormation()  //bool reference mill class
+        {
+
+
+        }
+
+        [Test]
+        public void PossibleShootingAfterMillCompletion()   //bool reference mill class
+        {
+
+
+        }
+
+        [Test]
+        public void PlayerCannotShootTheirOwnCows()   //bool reference referee class
+        {
 
 
         }
