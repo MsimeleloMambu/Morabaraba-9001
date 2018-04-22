@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace Morabaraba
 {
@@ -8,20 +11,22 @@ namespace Morabaraba
     {
         public List<string> MillList { get; private set; }
 
-        public Mills()
+
+
+        public bool isNew { get; set; }
+        public int Id { get; set; }
+
+        public int[] Positions { get; set; }
+
+        public Mill(int[] Positions, int Id = -1)
         {
-            this.MillList = MillList;
+            this.Positions = Positions;
+            isNew = false;
+            this.Id = Id;
+            
         }
-       public void removePosition(string position) //killing the cow
-       {
 
-       }
-       public void AddPosition(string position) //Flying cow moves to a new position and then later calls for millchecker
-       {
+        
 
-       }
-       
-        //disband mill formation
-        //check valid Mill formation
     }
 }
